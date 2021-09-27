@@ -1,0 +1,61 @@
+<style>
+    .flex-parent {
+      display: flex;
+      padding-top: 10%;
+    }
+    .flex-parentfle {
+      display: flex;
+    }
+    .jc-center {
+      justify-content: center;
+    }
+    .button{
+        margin-top:20px;
+    }
+        </style>
+    
+    <!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Socios</title>
+        </head>   
+        <body>
+        <div class="flex-parent jc-center">
+            <form action="addvsocios" method="POST">
+                <input name="nombre_Socio" required type="text" placeholder="Nombre">
+                <input name="Tasa_interes" required type="number" placeholder="Tasa interes(ej:1.5)" step="0.1">
+                <input name="Monto_Max" required type="number" placeholder="Monto Maximo" step="0.1">
+                <input type="submit" value="Agregar">
+             </form>        
+        </div>
+        <div class="flex-parent jc-center" style="margin-bottom: 30px; padding-top: 0%;">
+            {{ addstatus }}
+        </div>
+          
+          <div class="flex-parentfle jc-center">
+            <input type=button onClick="parent.location='vsocios'"value='Actualizar'>
+          </div>
+          <div class="flex-parentfle jc-center" style="padding-top: 20px">
+            <table border = 1>
+                <td>id</td>
+                <td>nombre </td>
+                <td>Tasa interes</td>
+                <td>Monto Maximo</td>
+                {% for item in data %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.nombre_Socio}}</td>
+                    <td>{{item.Tasa_interes}}</td>
+                    <td>{{item.Monto_Max}}</td>
+                </tr>
+                {% endfor %}
+                </table>
+        </div> 
+        <div class="flex-parentfle jc-center" style="margin-top: 10px;">
+            <input type=button onClick="parent.location='actualizar'"value='Volver a Prestamos'>
+        </div>
+    </body>
+        </html>  
